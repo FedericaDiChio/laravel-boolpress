@@ -18,7 +18,7 @@
                 @forelse ($posts as $post)
               <tr>
                 <td>{{ $post->title}}</td>
-                <td>{{ $post->created_at}}</td>
+                <td>{{ $post->getFormattedDate('created_at', 'd-m-y')}}</td>
                 <td class="d-flex justify-content-end align-items-center">
                     <a href="{{ route('admin.posts.show', $post->id)}}" class="btn btn-primary">Vai</a>
                     <a href="{{ route('admin.posts.edit', $post->id)}}" class="btn btn-warning mx-2">Modifica post</a>
