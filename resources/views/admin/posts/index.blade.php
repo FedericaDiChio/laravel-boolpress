@@ -22,7 +22,7 @@
              
               @empty
               <tr>
-                  <td>Non ci sono post da visualizzare</td>
+                  <td colspan="3" class="text-center">Non ci sono post da visualizzare</td>
               </tr>
               @endforelse
             </tbody>
