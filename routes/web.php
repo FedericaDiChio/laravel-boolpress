@@ -24,3 +24,9 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('posts','PostController');
 });
+
+
+// gestiamo le altre rotte
+Route::get('{any?}', function() {
+	Return view('guest.home');
+})->where('any', '.*');
