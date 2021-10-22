@@ -19,6 +19,7 @@ export default {
         };
     },
     methods: {
+        // NON FUNZIONANTE - RICONTROLLARE 
         getPosts() {
             axios.get(`${this.baseUri}/api/posts`)
             .then((res) => {

@@ -1,7 +1,7 @@
 <template>
   <div>
       {{ post.title }}
-      <!-- RICONTROLLARE -->
+      <!-- NON FUNZIONANTE - RICONTROLLARE -->
   </div>
 </template>
 

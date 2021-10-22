@@ -2006,6 +2006,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // NON FUNZIONANTE - RICONTROLLARE 
     getPosts: function getPosts() {
       var _this = this;
 
@@ -37721,7 +37722,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", [_c("h2", [_vm._v("Benvenuti su Boolpress!")])])
+    return _c("header", { staticClass: "mt-3" }, [
+      _c("h2", [_vm._v("Benvenuti su Boolpress!")])
+    ])
   }
 ]
 render._withStripped = true
