@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = Post::paginate(10);
+        ////TODO: $posts = Post::paginate(10);
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        //TODO:
     }
 
     /**
@@ -38,7 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO:
     }
 
     /**
@@ -49,7 +49,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO:
     }
 
     /**
@@ -60,7 +60,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //TODO:
     }
 
     /**
@@ -72,7 +72,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //TODO:
     }
 
     /**
@@ -83,6 +83,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //TODO:
     }
 }

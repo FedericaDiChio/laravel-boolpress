@@ -1969,9 +1969,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
-  props: ["post"]
+  props: ["post"],
+  // metodo per formattare la data e mettere lo 0 prima dei numeri minori di 10
+  methods: {
+    getFormattedDate: function getFormattedDate(date) {
+      var postDate = new Date(date);
+      var day = postDate.getDate();
+      var month = postDate.getMonth();
+      var year = postDate.getFullYear();
+      if (day < 10) day = '0' + day;
+      if (month < 10) month = '0' + month;
+      return "".concat(day, "/").concat(month, "/").concat(year);
+    }
+  }
 });
 
 /***/ }),
@@ -2001,18 +2022,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      baseUri: "http://localhost:8000/",
-      posts: []
+      posts: [],
+      baseUri: "http://localhost:8000/"
     };
   },
   methods: {
-    // NON FUNZIONANTE - RICONTROLLARE 
     getPosts: function getPosts() {
       var _this = this;
 
-      axios.get("".concat(this.baseUri, "/api/posts")).then(function (res) {
-        _this.posts = res.data;
+      axios.get("".concat(this.baseUri, "api/posts")).then(function (res) {
         console.log(res.data);
+        _this.posts = res.data; //TODO: DESTRUCTURING DA METTERE CON IL PAGINATE
+        // const { data, current_page, last_page } = res.data;
       })["catch"](function (err) {
         console.error(err);
       });
@@ -37722,7 +37743,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "mt-3" }, [
+    return _c("header", { staticClass: "mt-3 text-center" }, [
       _c("h2", [_vm._v("Benvenuti su Boolpress!")])
     ])
   }
@@ -37748,7 +37769,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    " + _vm._s(_vm.post.title) + "\n    ")])
+  return _c("div", { staticClass: "card my-4" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _c("h5", [_vm._v(_vm._s(_vm.post.title))])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c("p", [_vm._v(_vm._s(_vm.post.content))])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-footer" }, [
+      _c("small", [
+        _vm._v(
+          "\n           " +
+            _vm._s(_vm.getFormattedDate(_vm.post.created_at)) +
+            "\n        "
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

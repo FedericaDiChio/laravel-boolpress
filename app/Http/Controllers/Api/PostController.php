@@ -15,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
+        //TODO: inserire paginate successivamente
+        // $posts = Post::paginate(5); 
+        $posts = Post::All();
         return response()->json($posts);
     }
 
@@ -27,7 +29,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO:
     }
 
     /**
@@ -40,7 +42,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         if($post) return response()->json($post);
-        else return responde(' ', 404);
+        else return response(' ', 404);
     }
 
     /**
@@ -52,7 +54,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // //TODO:
     }
 
     /**
@@ -63,6 +65,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+       //TODO:
     }
 }

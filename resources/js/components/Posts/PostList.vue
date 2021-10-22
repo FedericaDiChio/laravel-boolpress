@@ -13,22 +13,22 @@ export default {
         PostCard,
     },
     data() {
-        return {
-            baseUri: "http://localhost:8000/",
-            posts: [],         
-        };
+        return {  posts: [],
+             baseUri: "http://localhost:8000/",
+            };
     },
     methods: {
-        // NON FUNZIONANTE - RICONTROLLARE 
         getPosts() {
-            axios.get(`${this.baseUri}/api/posts`)
+            axios.get(`${this.baseUri}api/posts`)
             .then((res) => {
+                console.log(res.data);
                 this.posts = res.data;
-                console.log(res.data)
+                //TODO: DESTRUCTURING DA METTERE CON IL PAGINATE
+                // const { data, current_page, last_page } = res.data;
             }).catch((err) => {
                 console.error(err);
             })
-        }
+        },
     }, 
     created(){
         this.getPosts();
