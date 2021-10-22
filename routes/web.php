@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ROTTE CON AUTENTICAZIONE 
 Route::get('/', function () {
     return view('guest.home');
 });
 
 Auth::routes();
-
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->group(function()  {
     Route::get('/', 'HomeController@index')->name('home');
@@ -26,7 +26,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
 });
 
 
-// gestiamo le altre rotte
+// ALTRE ROTTE
 Route::get('{any?}', function() {
 	Return view('guest.home');
 })->where('any', '.*');
