@@ -84,8 +84,8 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
-                <div id="root">wiiiiiii</div>
+                
+                <div id="root"></div>
                 <script src="{{ asset('js/front.js')}}"></script>
             </div>
         </div>
