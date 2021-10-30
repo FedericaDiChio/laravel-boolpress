@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -42,6 +43,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
         $data = $request->all();
         $post = new Post();
         $data['slug'] = Str::slug($data['title'], '-');
@@ -82,6 +89,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        'title' => ['required', Rule::unique('posts')->ignore($post->id)],
+        ]);
+
         $data = $request->all();
 
         $data['slug'] = Str::slug($data['title'], '-');
