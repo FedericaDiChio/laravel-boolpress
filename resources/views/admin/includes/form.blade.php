@@ -1,9 +1,9 @@
 
 @if ($post->exists)
-<form method="POST" enctype="multipart/form-data" action="{{ route('admin.posts.update', $post->id) }}">
+<form method="POST" action="{{ route('admin.posts.update', $post->id) }}">
     @method('PATCH')
 @else
-    <form method="POST" enctype="multipart/form-data" action="{{ route('admin.posts.store') }}">
+    <form method="POST" action="{{ route('admin.posts.store') }}">
 @endif
 @csrf  
 <div class="container">
