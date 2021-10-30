@@ -13,8 +13,9 @@ export default {
         PostCard,
     },
     data() {
-        return {  posts: [],
-             baseUri: "http://localhost:8000/",
+        return {  
+            posts: [],
+            baseUri: "http://localhost:8000/",
             };
     },
     methods: {

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    h1 ciaoooo
+    <section>
+        <div class="container">
+           @include('')
+    </section>
 @endsection

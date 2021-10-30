@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -27,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //TODO:
+        $post = new Post();
+        // $categories = Category::all();
+        // $tags = Tag::all();
+        return view('admin.posts.create', compact('post'));
     }
 
     /**
@@ -38,7 +42,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO:
+        $data = $request->all();
+        $post = new Post();
+        $data['slug'] = Str::slug($data['title'], '-');
+        $post->fill($data);
+        $post->save();
+        return redirect()->route('admin.posts.show', compact('post'));
     }
 
     /**
@@ -60,7 +69,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //TODO:
+        $post=Post::findOrFail($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -70,9 +80,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //TODO:
+        // $data = $request->all();
+
+        // $post->fill($data);
+        // $data['slug'] = Str::slug($data['title'], '-');
+        // $post->save();
+        // return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
